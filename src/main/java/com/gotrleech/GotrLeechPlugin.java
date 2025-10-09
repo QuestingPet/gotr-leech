@@ -102,16 +102,18 @@ public class GotrLeechPlugin extends Plugin {
 
     private void gameOver() {
         if (!config.notifyOnEndForNextGame()) return;
+        
+        if (config.minBindingNecklaceChargesRequired() > 0) {
+            if (gotrItemManager.getBindingNecklaces().getCount() < 1) {
+                notifier.notify("You are out of binding necklaces!");
+                return;
+            }
 
-        if (gotrItemManager.getBindingNecklaces().getCount() < 1) {
-            notifier.notify("You are out of binding necklaces!");
-            return;
-        }
-
-        int bindingCharges = gotrPlayerState.getBindingNecklaceCharges();
-        if (bindingCharges < config.minBindingNecklaceChargesRequired()) {
-            notifier.notify("You need more binding necklace charges for the next round!");
-            return;
+            int bindingCharges = gotrPlayerState.getBindingNecklaceCharges();
+            if (bindingCharges < config.minBindingNecklaceChargesRequired()) {
+                notifier.notify("You need more binding necklace charges for the next round!");
+                return;
+            }
         }
 
         if (gotrItemManager.getUnchargedCells().getCount() < config.minUnchargedCellsRequired()) {
