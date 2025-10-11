@@ -73,4 +73,14 @@ public interface GotrLeechConfig extends Config {
     default int minUnchargedCellsRequired() {
         return 1;
     }
+
+    @ConfigItem(
+            keyName = "customPointRequirement",
+            name = "Point requirement",
+            description = "Set the required points before turning overlay green.",
+            position = 6
+    )
+    @Range(min = 0, max = 600)
+    default int customPointRequirement() { return 150;
+    }
 }
