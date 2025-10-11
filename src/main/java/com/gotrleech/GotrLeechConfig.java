@@ -75,13 +75,12 @@ public interface GotrLeechConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "highPointRequirement",
-            name = "300 point requirement",
-            description = "If enabled, the plugin will require 300 points instead of 150",
+            keyName = "customPointRequirement",
+            name = "Point requirement",
+            description = "Set the required points before turning overlay green.",
             position = 6
     )
-    default boolean highPointRequirement() {
-        return false;
+    @Range(min = 0, max = 600)
+    default int customPointRequirement() { return 150;
     }
-
 }
