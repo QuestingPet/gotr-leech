@@ -58,7 +58,7 @@ public class GotrOverlayPanel extends OverlayPanel {
 
         renderBool(gotrPlayerState.isMining(), "Is Mining");
 
-        int requiredEnergy = config.customPointRequirement()
+        int requiredEnergy = config.customPointRequirement();
         renderInt(gotrPlayerState.getTotalEnergy(), "Total Energy", requiredEnergy);
         panelComponent.getChildren().add(LineComponent.builder().build());
 

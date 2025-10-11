@@ -124,7 +124,7 @@ public class GotrLeechPlugin extends Plugin {
     private void sixtyPercent() {
         if (!config.notifyOnSixtyPercentMessage()) return;
 
-        int requiredEnergy = config.customPointRequirement()
+        int requiredEnergy = config.customPointRequirement();
         int pointsToQualify = requiredEnergy - gotrPlayerState.getTotalEnergy();
         if (pointsToQualify > 0) {
             notifier.notify("You still need " + pointsToQualify + " more points to qualify for GotR rewards!");
